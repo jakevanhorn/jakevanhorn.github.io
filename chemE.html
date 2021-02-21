@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+<title>Ideal Gas Calculator</title>    
+</head>
+    
+<body>
+    
+<h2> Ideal Gas Calculator </h2>
+    
+<form>
+    <label for="p"> Presure: </label>
+    <input type="number" id="p" name ="p" value=null>
+    <select name="pUnits" id="pUnits">
+        <option value="1">atm</option>
+<!--
+        <option value="2">Pa</option>
+        <option value="3">kPa</option>
+-->
+    </select><br>
+    <label for="v"> Volume: </label>
+    <input type="number" id="v" name ="v" value=null>
+    <select name="vUnits" id="vUnits">
+        <option value="m^3">m^3</option>
+<!--
+        <option value="L">L</option>
+        <option value="gal">gal</option>
+-->
+    </select><br>
+    <label for="mol"> Moles: </label>
+    <input type="number" id="mol" name ="mol" value=null>
+    <select name="molUnits" id="molUnits">
+        <option value="1">mol</option>
+    </select><br>
+    <label for="t"> Temperature: </label>
+    <input type="number" id="t" name ="t" value=null>
+    <select name="tUnits" id="tUnits">
+        <option value="1">K</option>
+    </select><br><br>
+</form>
+    
+<button onclick="computeValue()"> Compute </button>
+    
+<p>
+<a href="index.html" target="_self"> Back to Home </a>    
+</p>
+    
+<script>
+var R = 0.00008205;
+var numInp = 0;
+    
+function computeValue() {
+    var vals = [document.getElementById("p").value, document.getElementById("v").value, document.getElementById("mol").value, document.getElementById("t").value];
+    numInp = 0;
+    vals.forEach(checkInput);
+    if (numInp != 1) {
+        window.alert("Invalid Input. Leave one cell empty!");
+    } else if (vals[0] == "") {
+        computePressure(vals)
+    } else if (vals[1] == "") {
+        computeVolume(vals)
+    } else if (vals[2] == "") {
+        computeMoles(vals)
+    } else if (vals[3] == "") {
+        computeTemp(vals)
+    }
+}
+    
+function checkInput(value, index, array) {
+    if (value == "") {
+        numInp += 1;
+    }
+}
+function computePressure(vals) {
+    console.log(vals[2])
+    vals[0] = (vals[2]*vals[3]*R)/vals[1];
+    document.getElementById("p").value = vals[0];
+}
+function computeVolume(vals) {
+    vals[1] = (vals[2]*vals[3]*R)/vals[0];
+    document.getElementById("v").value = vals[1];
+}   
+function computeTemp(vals) {
+    vals[3] = (vals[0]*vals[1])/(R*vals[2]);
+    document.getElementById("t").value = vals[3];
+}
+function computeMoles(vals) {
+    vals[2] = (vals[0]*vals[1])/(R*vals[3]);
+    document.getElementById("mol").value = vals[2];
+}
+
+</script>
+        
+</body>
+</html>
