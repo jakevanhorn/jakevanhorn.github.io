@@ -1,60 +1,37 @@
 <!DOCTYPE html>
 <html>
     
-<head>
-<title>Ideal Gas Calculator</title>
+    <head>
+        
+        <title>Ideal Gas Calculator</title>
+        <link href="style.css" rel="stylesheet">
     
-<style>
-    
-    body {
-/*
-        background-image: url('background.jpg');
-        background-repeat: no-repeat;
-        background-size: 100%;
-*/
-    }
-    
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #2C3E50;
-    }
-    
-    li {
-        float: left;
-    }
-    
-    li a {
-        display: block;
-        padding: 8px;
-        color: white;
-        text-decoration: none;
-    }
-    
-    li:hover:not(.active) {
-        background-color: black;
-    }
-
-    .active {
-        background-color: steelblue;
-    }
-    
-    h1 {
-        color: cadetblue;
-    }
-    
-</style>
-    
-</head>
+        <style>
+        
+            h2 {
+                color: white;
+                padding-left: 20px;
+            }
+            
+            form label{
+                color: white;
+                padding: 20px;
+            }
+            .p {
+                margin-right: 20px;
+            }
+        
+        </style>
+        
+    </head>
     
 <body>
     
+<div class="gradientBG1">
+    
 <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a class="active" href="chemE.html">IGL</a></li>
-    <li><a href="https://www.youtube.com/watch?v=2ocykBzWDiM" target="=_blank"> Suprise </a></li><br>
+    <li><a href="index.html"> Home </a></li>
+    <li><a href="chemE.html"> Other </a></li>
 </ul>
     
 <h2> Ideal Gas Calculator </h2>
@@ -92,9 +69,13 @@
     
 <button onclick="computeValue()"> Compute </button>
     
-<p>
-<a href="index.html" target="_self"> Back to Home </a>    
-</p>
+</div>
+    
+<div class="footer">
+    
+    <p> @jakevanhorn </p>
+    
+</div>
     
 <script>
 var R = 0.00008205;
